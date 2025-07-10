@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CreditService {
@@ -17,12 +18,17 @@ public class CreditService {
         return creditRepository.findAll();
     }
 
+    public Optional<Credit> getCreditById(Long id) {
+        return creditRepository.findById(id);
+    }
+
     public Credit saveCredit(Credit credit) {
         return creditRepository.save(credit);
     }
 
-    public Credit getCreditById(Long id) {
-        return creditRepository.findById(id).orElse(null);
+    // Méthode ajoutée pour récupérer la liste des crédits impayés (reste > 0)
+    public List<Credit> getCreditsImpayes() {
+        return creditRepository.findByResteGreaterThan(0.0);
     }
 }
 

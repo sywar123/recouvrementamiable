@@ -3,6 +3,7 @@ package com.recouvrement.controller;
 import com.recouvrement.model.Credit;
 import com.recouvrement.service.CreditService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +27,15 @@ public class CreditController {
     }
 
     @GetMapping("/{id}")
-    public Credit getCredit(@PathVariable Long id) {
-        return creditService.getCreditById(id);
+    public ResponseEntity<Credit> getCreditById(@PathVariable Long id) {
+        return creditService.getCreditById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    // Partie ajoutée : Endpoint pour récupérer la liste des crédits impayés (reste > 0)
+    @GetMapping("/impayes")
+    public List<Credit> getCreditsImpayes() {
+        return creditService.getCreditsImpayes();
     }
 }
