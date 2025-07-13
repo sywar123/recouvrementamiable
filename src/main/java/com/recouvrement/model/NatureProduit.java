@@ -12,11 +12,7 @@ public class NatureProduit {
 
     private String libelle; // Exemple : "Crédit consommation", "Crédit immobilier", etc.
 
-    @OneToMany(mappedBy = "natureProduit")
-    private List<Produit> produits;
-
-    @OneToMany(mappedBy = "natureProduit")
-    private List<ActionRecouvrement> actions;
+   
 
     // Constructeurs
     public NatureProduit() {
@@ -29,8 +25,7 @@ public class NatureProduit {
     public NatureProduit(Long id, String libelle, List<Produit> produits, List<ActionRecouvrement> actions) {
         this.id = id;
         this.libelle = libelle;
-        this.produits = produits;
-        this.actions = actions;
+        
     }
 
     // Getters & Setters
@@ -51,20 +46,6 @@ public class NatureProduit {
         this.libelle = libelle;
     }
 
-    public List<Produit> getProduits() {
-        return produits;
-    }
-
-    public void setProduits(List<Produit> produits) {
-        this.produits = produits;
-    }
-
-    public List<ActionRecouvrement> getActions() {
-        return actions;
-    }
-
-    public void setActions(List<ActionRecouvrement> actions) {
-        this.actions = actions;
-    }
+   
 }
 

@@ -28,7 +28,7 @@ public class StructureService {
 
     public Structure update(Long id, Structure updated) {
         return repository.findById(id).map(s -> {
-            s.setNom(updated.getNom());
+            s.setLibelle(updated.getLibelle());
             s.setTypeStructure(updated.getTypeStructure());
             return repository.save(s);
         }).orElse(null);

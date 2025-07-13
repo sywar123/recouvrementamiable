@@ -12,9 +12,9 @@ public class TypePiece {
 
     private String libelle; // Exemple : "CIN", "RNE", "Passeport"
 
-    @OneToMany(mappedBy = "typePiece")
-    private List<Client> clients;
+    private Double solde;   
 
+   
     // Getters & Setters
 
     public Long getId() {
@@ -33,13 +33,19 @@ public class TypePiece {
         this.libelle = libelle;
     }
 
-    public List<Client> getClients() {
-        return clients;
+    public Double getSolde() {
+        return solde;
     }
 
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
+    public void setSolde(Double solde) {
+        this.solde = solde;
     }
-}
+
+   
+  
+
+    
+    }
+
 
 

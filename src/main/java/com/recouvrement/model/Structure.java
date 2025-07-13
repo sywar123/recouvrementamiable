@@ -10,20 +10,18 @@ public class Structure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nom;
+    private String libelle;
 
     @ManyToOne
     @JoinColumn(name = "type_structure_id")
     private TypeStructure typeStructure;
 
-    @OneToMany(mappedBy = "structure")
-    private List<Compte> comptes;
-
+  
     // Constructeurs
     public Structure() {}
 
     public Structure(String nom, TypeStructure typeStructure) {
-        this.nom = nom;
+        this.libelle = libelle;
         this.typeStructure = typeStructure;
     }
 
@@ -37,12 +35,12 @@ public class Structure {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getLibelle() {
+        return libelle;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 
     public TypeStructure getTypeStructure() {
@@ -53,12 +51,6 @@ public class Structure {
         this.typeStructure = typeStructure;
     }
 
-    public List<Compte> getComptes() {
-        return comptes;
-    }
-
-    public void setComptes(List<Compte> comptes) {
-        this.comptes = comptes;
-    }
+   
 }
 

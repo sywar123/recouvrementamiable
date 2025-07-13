@@ -28,8 +28,7 @@ public class ActionRecouvrementService {
 
     public ActionRecouvrement updateAction(Long id, ActionRecouvrement updatedAction) {
         return actionRecouvrementRepository.findById(id).map(action -> {
-            action.setLibelleAction(updatedAction.getLibelleAction());
-            action.setTimingDeclenchement(updatedAction.getTimingDeclenchement());
+            
             action.setMontant(updatedAction.getMontant());
             action.setDateCreation(updatedAction.getDateCreation());
             action.setDateConcretisation(updatedAction.getDateConcretisation());

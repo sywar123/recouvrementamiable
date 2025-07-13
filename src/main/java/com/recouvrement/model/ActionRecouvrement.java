@@ -11,8 +11,8 @@ public class ActionRecouvrement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String libelleAction;      // Libellé de l'action
-    private String timingDeclenchement; // Timing de déclenchement (exemple : "immédiat", "à J+3", etc...)
+   
+ 
 
     private BigDecimal montant;         // Montant associé à l'action
 
@@ -34,11 +34,10 @@ public class ActionRecouvrement {
     // Constructeurs
     public ActionRecouvrement() {}
 
-    public ActionRecouvrement(String libelleAction, String timingDeclenchement, BigDecimal montant,
+    public ActionRecouvrement( BigDecimal montant,
                               LocalDate dateCreation, LocalDate dateConcretisation,
                               Credit credit, StatutAction statutAction, NatureProduit natureProduit) {
-        this.libelleAction = libelleAction;
-        this.timingDeclenchement = timingDeclenchement;
+        
         this.montant = montant;
         this.dateCreation = dateCreation;
         this.dateConcretisation = dateConcretisation;
@@ -57,21 +56,8 @@ public class ActionRecouvrement {
         this.id = id;
     }
 
-    public String getLibelleAction() {
-        return libelleAction;
-    }
-
-    public void setLibelleAction(String libelleAction) {
-        this.libelleAction = libelleAction;
-    }
-
-    public String getTimingDeclenchement() {
-        return timingDeclenchement;
-    }
-
-    public void setTimingDeclenchement(String timingDeclenchement) {
-        this.timingDeclenchement = timingDeclenchement;
-    }
+   
+    
 
     public BigDecimal getMontant() {
         return montant;
